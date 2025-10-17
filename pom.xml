@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.0-SNAPSHOT</version>
+        <version>3.2.9</version>
         <relativePath/>
     </parent>
 
@@ -24,7 +24,35 @@
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
     </properties>
 
-    <dependencyManagement></dependencyManagement>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.vortxyz</groupId>
+                <artifactId>pedido-domain-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.vortxyz</groupId>
+                <artifactId>pedido-application-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.vortxyz</groupId>
+                <artifactId>pedido-application</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.vortxyz</groupId>
+                <artifactId>pedido-dataacces</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.vortxyz</groupId>
+                <artifactId>pedido-messaging</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies></dependencies>
 
