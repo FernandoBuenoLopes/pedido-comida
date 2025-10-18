@@ -7,6 +7,8 @@ import java.util.Objects;
 public class Dinheiro  {
     private final BigDecimal quantia;
 
+    public static final Dinheiro ZERO = new Dinheiro(BigDecimal.ZERO);
+
     public Dinheiro(BigDecimal quantia) {
         this.quantia = quantia;
     }

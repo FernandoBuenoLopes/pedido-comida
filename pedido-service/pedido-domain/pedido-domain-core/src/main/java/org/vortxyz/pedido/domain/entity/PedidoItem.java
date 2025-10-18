@@ -12,6 +12,17 @@ public class PedidoItem extends BaseEntity<PedidoItemId> {
     private final Dinheiro preco;
     private final Dinheiro subtotal;
 
+    void inicializarPedidoItem(PedidoId pedidoId, PedidoItemId pedidoItemId) {
+        this.pedidoId = pedidoId;
+        super.setId(pedidoItemId);
+    }
+
+    boolean isPrecoValido() {
+        return preco.eMaiorQueZero() &&
+                preco.equals(produto.getPreco()) &&
+                preco.multiplicar(quantidade).equals(subtotal);
+    }
+
     private PedidoItem(Builder builder) {
         super.setId(builder.pedidoItemId);
         produto = builder.produto;
@@ -44,7 +55,6 @@ public class PedidoItem extends BaseEntity<PedidoItemId> {
     public Dinheiro getSubtotal() {
         return subtotal;
     }
-
 
     public static final class Builder {
         private PedidoItemId pedidoItemId;

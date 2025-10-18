@@ -23,4 +23,12 @@ public class Produto extends BaseEntity<ProdutoId> {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public Dinheiro getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Dinheiro preco) {
+        this.preco = preco;
+    }
 }
