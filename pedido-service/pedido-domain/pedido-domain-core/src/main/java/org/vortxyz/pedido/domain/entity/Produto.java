@@ -16,19 +16,16 @@ public class Produto extends BaseEntity<ProdutoId> {
         this.preco = preco;
     }
 
+    public void atualizarComNomeEPrecoConfirmados(String nome, Dinheiro preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public Dinheiro getPreco() {
         return preco;
-    }
-
-    public void setPreco(Dinheiro preco) {
-        this.preco = preco;
     }
 }
