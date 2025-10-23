@@ -9,6 +9,7 @@ import org.vortxyz.domain.valueobject.RestauranteId;
 import org.vortxyz.pedido.domain.dto.create.PedidoCriarCommand;
 import org.vortxyz.pedido.domain.dto.create.PedidoCriarResponse;
 import org.vortxyz.pedido.domain.dto.create.PedidoEndereco;
+import org.vortxyz.pedido.domain.dto.track.PedidoRastrearResponse;
 import org.vortxyz.pedido.domain.entity.Pedido;
 import org.vortxyz.pedido.domain.entity.PedidoItem;
 import org.vortxyz.pedido.domain.entity.Produto;
@@ -65,6 +66,13 @@ public class PedidoMapper {
         return PedidoCriarResponse.builder()
                 .pedidoRastreamentoId(pedidoSalvo.getRastreamentoId().getValue())
                 .pedidoStatus(pedidoSalvo.getPedidoStatus())
+                .build();
+    }
+
+    public PedidoRastrearResponse pedidoToPedidoRastrearResponse(Pedido pedido) {
+        return PedidoRastrearResponse.builder()
+                .pedidoRastreamentoId(pedido.getRastreamentoId().getValue())
+                .pedidoStatus(pedido.getPedidoStatus())
                 .build();
     }
 }
