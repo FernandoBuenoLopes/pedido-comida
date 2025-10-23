@@ -12,6 +12,7 @@ import org.vortxyz.pedido.domain.entity.Restaurante;
 import org.vortxyz.pedido.domain.event.PedidoCriadoEvent;
 import org.vortxyz.pedido.domain.exception.PedidoDomainException;
 import org.vortxyz.pedido.domain.mapper.PedidoMapper;
+import org.vortxyz.pedido.domain.ports.output.message.publisher.pagamento.PedidoCriadoPagamentoRequestgMessagePublisher;
 import org.vortxyz.pedido.domain.ports.output.repository.ClienteRepository;
 import org.vortxyz.pedido.domain.ports.output.repository.PedidoRepository;
 import org.vortxyz.pedido.domain.ports.output.repository.RestauranteRepository;
@@ -23,56 +24,21 @@ import java.util.UUID;
 @Component
 public class PedidoCriarCommandHandler {
 
-    private final PedidoDomainService pedidoDomainService;
-    private final PedidoRepository pedidoRepository;
-    private final ClienteRepository clienteRepository;
-    private final RestauranteRepository restauranteRepository;
+    private final PedidoCriarHelper pedidoCriarHelper;
     private final PedidoMapper pedidoMapper;
+    private final PedidoCriadoPagamentoRequestgMessagePublisher pedidoCriadoPagamentoRequestgMessagePublisher;
 
-    public PedidoCriarCommandHandler(PedidoDomainService pedidoDomainService, PedidoRepository pedidoRepository, ClienteRepository clienteRepository, RestauranteRepository restauranteRepository, PedidoMapper pedidoMapper) {
-        this.pedidoDomainService = pedidoDomainService;
-        this.pedidoRepository = pedidoRepository;
-        this.clienteRepository = clienteRepository;
-        this.restauranteRepository = restauranteRepository;
+    public PedidoCriarCommandHandler(PedidoCriarHelper pedidoCriarHelper,
+                                     PedidoMapper pedidoMapper,
+                                     PedidoCriadoPagamentoRequestgMessagePublisher pedidoCriadoPagamentoRequestgMessagePublisher) {
+        this.pedidoCriarHelper = pedidoCriarHelper;
         this.pedidoMapper = pedidoMapper;
+        this.pedidoCriadoPagamentoRequestgMessagePublisher = pedidoCriadoPagamentoRequestgMessagePublisher;
     }
 
-    @Transactional
     public PedidoCriarResponse pedidoCriar(PedidoCriarCommand pedidoCriarCommand){
-        conferirCliente(pedidoCriarCommand.getClienteId());
-        Restaurante restauranteEncontrado = conferirRestaurante(pedidoCriarCommand);
-        Pedido pedido = pedidoMapper.pedidoCriarCommandToPedido(pedidoCriarCommand);
-        PedidoCriadoEvent pedidoCriadoEvent = pedidoDomainService.validarEInicializarPedido(pedido, restauranteEncontrado);
-        Pedido pedidoSalvo = pedidoSalvar(pedido);
-        log.info("Pedido criado com id: {}", pedidoSalvo.getId().getValue());
-        return pedidoMapper.pedidoToPedidoCriarResponse(pedidoSalvo);
-    }
-
-    private void conferirCliente(@NotNull UUID clienteId) {
-        Optional<Cliente> clienteEncontrado = clienteRepository.encontrarClientePorId(clienteId);
-        if (clienteEncontrado.isEmpty()) {
-            log.warn("Cliente com id: {} não encontrado", clienteId);
-            throw new PedidoDomainException("Cliente com id: " + clienteId + " não encontrado.");
-        }
-    }
-
-    private Restaurante conferirRestaurante(PedidoCriarCommand pedidoCriarCommand) {
-        Restaurante restaurante = pedidoMapper.pedidoCriarCommandToRestaurante(pedidoCriarCommand);
-        Optional<Restaurante> restauranteOptional = restauranteRepository.encontrarRestauranteInformacao(restaurante);
-        if (restauranteOptional.isEmpty()) {
-            log.warn("Restaurante com id: {} não encontrado", pedidoCriarCommand.getRestauranteId());
-            throw new PedidoDomainException("Restaurante com id: " + pedidoCriarCommand.getRestauranteId() + " não encontrado.");
-        }
-        return restauranteOptional.get();
-    }
-
-    private Pedido pedidoSalvar(Pedido pedido) {
-        Pedido pedidoResultante = pedidoRepository.salvar(pedido);
-        if (pedidoResultante == null) {
-            log.error("Não foi possível salvar o pedido.");
-            throw new PedidoDomainException("Não foi possível salvar o pedido.");
-        }
-        log.info("Pedido salvo com id: {}", pedidoResultante.getId().getValue());
-        return pedidoResultante;
+        PedidoCriadoEvent pedidoCriadoEvent = pedidoCriarHelper.persistirPedido(pedidoCriarCommand);
+        pedidoCriadoPagamentoRequestgMessagePublisher.publish(pedidoCriadoEvent);
+        return pedidoMapper.pedidoToPedidoCriarResponse(pedidoCriadoEvent.getPedido());
     }
 }
