@@ -1,0 +1,5 @@
+version: '3.7'
+
+networks:
+  pedido-comida:
+    driver: bridge

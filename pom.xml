@@ -19,6 +19,7 @@
     <modules>
         <module>pedido-service</module>
         <module>common</module>
+        <module>infraestrutura</module>
     </modules>
 
     <properties>
