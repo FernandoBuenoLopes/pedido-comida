@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface PedidoRepository {
 
-    Pedido salvar(Pedido pedido);
+    Pedido save(Pedido pedido);
 
-    Optional<Pedido> encontrarPorRastreamentoId(RastreamentoId rastreamentoId);
+    Optional<Pedido> findByRastreamentoId(RastreamentoId rastreamentoId);
 }

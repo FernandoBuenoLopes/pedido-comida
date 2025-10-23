@@ -66,7 +66,7 @@ public class PedidoCriarHelper {
     }
 
     private Pedido pedidoSalvar(Pedido pedido) {
-        Pedido pedidoResultante = pedidoRepository.salvar(pedido);
+        Pedido pedidoResultante = pedidoRepository.save(pedido);
         if (pedidoResultante == null) {
             log.error("Não foi possível salvar o pedido.");
             throw new PedidoDomainException("Não foi possível salvar o pedido.");

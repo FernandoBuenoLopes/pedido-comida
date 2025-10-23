@@ -25,7 +25,7 @@ public class PedidoMapper {
 
     public Restaurante pedidoCriarCommandToRestaurante(PedidoCriarCommand pedidoCriarCommand) {
         return Restaurante.builder()
-                .id(new RestauranteId(pedidoCriarCommand.getRestauranteId()))
+                .restauranteId(new RestauranteId(pedidoCriarCommand.getRestauranteId()))
                 .produtos(pedidoCriarCommand.getItens().stream().map(pedidoItem ->
                         new Produto(new ProdutoId(pedidoItem.getProdutoId())))
                         .collect(Collectors.toList()))
@@ -62,10 +62,11 @@ public class PedidoMapper {
         ).collect(Collectors.toList());
     }
 
-    public PedidoCriarResponse pedidoToPedidoCriarResponse(Pedido pedidoSalvo) {
+    public PedidoCriarResponse pedidoToPedidoCriarResponse(Pedido pedidoSalvo, String mensagem) {
         return PedidoCriarResponse.builder()
                 .pedidoRastreamentoId(pedidoSalvo.getRastreamentoId().getValue())
                 .pedidoStatus(pedidoSalvo.getPedidoStatus())
+                .mensagem(mensagem)
                 .build();
     }
 

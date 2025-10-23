@@ -24,7 +24,7 @@ public class PedidoDomainServiceImpl implements PedidoDomainService {
         preencherInformacaoDoProduto(pedido, restaurante);
         pedido.validarPedido();
         pedido.inicializarPedido();
-        log.info("Pedido com id: {} está inicializando.", pedido.getId().getValue());
+        log.info("Pedido com id: {} está inicializado.", pedido.getId().getValue());
         return new PedidoCriadoEvent(pedido, ZonedDateTime.now(ZoneId.of(FUSO_HORARIO)));
     }
 
@@ -57,7 +57,7 @@ public class PedidoDomainServiceImpl implements PedidoDomainService {
     private void validarRestaurante(Restaurante restaurante) {
         if (!restaurante.isAtivo()) {
             throw new PedidoDomainException("Restaurante com id: " + restaurante.getId().getValue()
-                    + "não está ativo no momento.");
+                    + " não está ativo no momento.");
         }
     }
 

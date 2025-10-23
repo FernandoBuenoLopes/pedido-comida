@@ -27,7 +27,7 @@ public class PedidoRastrearCommandHandler {
 
     @Transactional(readOnly = true)
     public PedidoRastrearResponse pedidoRastrear(PedidoRastrearQuery pedidoRastrearQuery){
-        Optional<Pedido> pedidoResult = pedidoRepository.encontrarPorRastreamentoId(new RastreamentoId(pedidoRastrearQuery.getPedidoRastreamentoId()));
+        Optional<Pedido> pedidoResult = pedidoRepository.findByRastreamentoId(new RastreamentoId(pedidoRastrearQuery.getPedidoRastreamentoId()));
         if (pedidoResult.isEmpty()) {
             log.warn("Pedido com id: {} não encontrado.", pedidoRastrearQuery.getPedidoRastreamentoId());
             throw new PedidoNaoEncontradoException("Pedido com id: " + pedidoRastrearQuery.getPedidoRastreamentoId() + " não encontrado.");

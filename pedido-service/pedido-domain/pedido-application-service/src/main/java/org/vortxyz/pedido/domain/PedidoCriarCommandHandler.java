@@ -39,6 +39,6 @@ public class PedidoCriarCommandHandler {
     public PedidoCriarResponse pedidoCriar(PedidoCriarCommand pedidoCriarCommand){
         PedidoCriadoEvent pedidoCriadoEvent = pedidoCriarHelper.persistirPedido(pedidoCriarCommand);
         pedidoCriadoPagamentoRequestgMessagePublisher.publish(pedidoCriadoEvent);
-        return pedidoMapper.pedidoToPedidoCriarResponse(pedidoCriadoEvent.getPedido());
+        return pedidoMapper.pedidoToPedidoCriarResponse(pedidoCriadoEvent.getPedido(), "Pedido criado com sucesso.");
     }
 }
