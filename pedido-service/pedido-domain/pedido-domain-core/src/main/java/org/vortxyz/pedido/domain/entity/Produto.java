@@ -10,6 +10,10 @@ public class Produto extends BaseEntity<ProdutoId> {
     private String nome;
     private Dinheiro preco;
 
+    public Produto(ProdutoId produtoId) {
+        super.setId(produtoId);
+    }
+
     public Produto(ProdutoId produtoId, String nome, Dinheiro preco) {
         super.setId(produtoId);
         this.nome = nome;
