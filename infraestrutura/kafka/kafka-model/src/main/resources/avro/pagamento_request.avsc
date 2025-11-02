@@ -1,0 +1,59 @@
+{
+    "namespace": "org.vortxyz.kafka.pedido.avro.model",
+    "type": "record",
+    "name": "PagamentoRequestAvroModel",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "sagaId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "clienteId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "pedidoId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "preco",
+            "type": {
+                "type": "bytes",
+                "logicalType": "decimal",
+                "precision": 10,
+                "scale": 2
+            }
+        },
+        {
+            "name": "criadoEm",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        },
+        {
+            "name": "pedidoPagamentoStatus",
+            "type": {
+                  "type": "enum",
+                  "name": "PedidoPagamentoStatus",
+                  "symbols": ["PENDENTE", "CANCELADO"]
+               }
+        }
+    ]
+}

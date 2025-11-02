@@ -1,0 +1,59 @@
+{
+    "namespace": "org.vortxyz.kafka.pedido.avro.model",
+    "type": "record",
+    "name": "RestauranteAprovacaoResponseAvroModel",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "sagaId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "restauranteId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "pedidoId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "criadoEm",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        },
+        {
+            "name": "pedidoAprovacaoStatus",
+            "type": {
+                  "type": "enum",
+                  "name": "PedidoAprovacaoStatus",
+                  "symbols": ["APROVADO", "REJEITADO"]
+               }
+        },
+        {
+            "name": "mensagensFalha",
+            "type": {
+                "type": "array",
+                "items":{
+                  "type":"string"
+               }
+            }
+        }
+    ]
+}

@@ -5,12 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.vortxyz</groupId>
-        <artifactId>pedido-comida</artifactId>
+        <artifactId>kafka</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>infraestrutura</artifactId>
-
-    <packaging>pom</packaging>
+    <artifactId>kafka-consumer</artifactId>
 
 </project>

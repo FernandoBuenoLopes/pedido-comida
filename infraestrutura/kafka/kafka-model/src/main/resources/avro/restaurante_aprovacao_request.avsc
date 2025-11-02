@@ -1,0 +1,73 @@
+{
+    "namespace": "org.vortxyz.kafka.pedido.avro.model",
+    "type": "record",
+    "name": "PedidoAprovacaoRequestAvroModel",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "sagaId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "restauranteId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "pedidoId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "restaurantePedidoStatus",
+            "type": {
+                  "type": "enum",
+                  "name": "RestaurantePedidoStatus",
+                  "symbols": ["PAGO"]
+            }
+        },
+        {
+            "name": "produtos",
+            "type": {
+                "type": "array",
+                "items":{
+                  "name":"Produto",
+                  "type":"record",
+                  "fields":[
+                    {"name":"id", "type": "string", "logicalType": "uuid"},
+                    {"name":"quantidade", "type": "int"}
+                   ]
+               }
+            }
+        },
+        {
+            "name": "preco",
+            "type": {
+                "type": "bytes",
+                "logicalType": "decimal",
+                "precision": 10,
+                "scale": 2
+            }
+        },
+        {
+            "name": "criadoEm",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        }
+    ]
+}
