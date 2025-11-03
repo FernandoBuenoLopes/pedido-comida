@@ -14,7 +14,7 @@ import org.vortxyz.pedido.domain.entity.Pedido;
 import org.vortxyz.pedido.domain.entity.PedidoItem;
 import org.vortxyz.pedido.domain.entity.Produto;
 import org.vortxyz.pedido.domain.entity.Restaurante;
-import org.vortxyz.pedido.domain.valueobject.Endereco;
+import org.vortxyz.pedido.domain.valueobject.EnderecoEntrega;
 
 import java.util.List;
 import java.util.UUID;
@@ -42,8 +42,8 @@ public class PedidoMapper {
                 .build();
     }
 
-    private Endereco pedidoEnderecoToEndereco(@NotNull PedidoEndereco pedidoEndereco) {
-        return new Endereco(
+    private EnderecoEntrega pedidoEnderecoToEndereco(@NotNull PedidoEndereco pedidoEndereco) {
+        return new EnderecoEntrega(
                 UUID.randomUUID(),
                 pedidoEndereco.getRua(),
                 pedidoEndereco.getCep(),

@@ -65,6 +65,11 @@
             </dependency>
             <dependency>
                 <groupId>org.vortxyz</groupId>
+                <artifactId>common-applicaiton</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.vortxyz</groupId>
                 <artifactId>kafka-producer</artifactId>
                 <version>${project.version}</version>
             </dependency>

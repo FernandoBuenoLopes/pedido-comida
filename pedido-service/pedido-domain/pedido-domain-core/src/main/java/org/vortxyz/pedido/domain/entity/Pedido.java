@@ -3,7 +3,7 @@ package org.vortxyz.pedido.domain.entity;
 import org.vortxyz.domain.entity.AggregateRoot;
 import org.vortxyz.domain.valueobject.*;
 import org.vortxyz.pedido.domain.exception.PedidoDomainException;
-import org.vortxyz.pedido.domain.valueobject.Endereco;
+import org.vortxyz.pedido.domain.valueobject.EnderecoEntrega;
 import org.vortxyz.pedido.domain.valueobject.PedidoItemId;
 import org.vortxyz.pedido.domain.valueobject.RastreamentoId;
 
@@ -13,13 +13,15 @@ import java.util.UUID;
 public class Pedido extends AggregateRoot<PedidoId> {
     private final ClienteId clienteId;
     private final RestauranteId restauranteId;
-    private final Endereco enderecoEntrega;
+    private final EnderecoEntrega enderecoEntrega;
     private final Dinheiro preco;
     private final List<PedidoItem> itens;
 
     private RastreamentoId rastreamentoId;
     private PedidoStatus pedidoStatus;
     private List<String> mensagensFalha;
+
+    public static final String DELIMITADOR_MENSAGENS_FALHA = ", ";
 
     public void inicializarPedido() {
         setId(new PedidoId(UUID.randomUUID()));
@@ -138,7 +140,7 @@ public class Pedido extends AggregateRoot<PedidoId> {
         return restauranteId;
     }
 
-    public Endereco getEnderecoEntrega() {
+    public EnderecoEntrega getEnderecoEntrega() {
         return enderecoEntrega;
     }
 
@@ -166,7 +168,7 @@ public class Pedido extends AggregateRoot<PedidoId> {
         private PedidoId pedidoId;
         private ClienteId clienteId;
         private RestauranteId restauranteId;
-        private Endereco enderecoEntrega;
+        private EnderecoEntrega enderecoEntrega;
         private Dinheiro preco;
         private List<PedidoItem> itens;
         private RastreamentoId rastreamentoId;
@@ -191,7 +193,7 @@ public class Pedido extends AggregateRoot<PedidoId> {
             return this;
         }
 
-        public Builder enderecoEntrega(Endereco val) {
+        public Builder enderecoEntrega(EnderecoEntrega val) {
             enderecoEntrega = val;
             return this;
         }

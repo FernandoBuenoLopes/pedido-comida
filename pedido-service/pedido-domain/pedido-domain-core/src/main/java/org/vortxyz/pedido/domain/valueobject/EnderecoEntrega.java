@@ -3,13 +3,13 @@ package org.vortxyz.pedido.domain.valueobject;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Endereco {
+public class EnderecoEntrega {
     private final UUID id;
     private final String rua;
     private final String cep;
     private final String cidade;
 
-    public Endereco(UUID id, String rua, String cep, String cidade) {
+    public EnderecoEntrega(UUID id, String rua, String cep, String cidade) {
         this.id = id;
         this.rua = rua;
         this.cep = cep;
@@ -34,8 +34,8 @@ public class Endereco {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Endereco endereco)) return false;
-        return Objects.equals(getRua(), endereco.getRua()) && Objects.equals(getCep(), endereco.getCep()) && Objects.equals(getCidade(), endereco.getCidade());
+        if (!(o instanceof EnderecoEntrega enderecoEntrega)) return false;
+        return Objects.equals(getRua(), enderecoEntrega.getRua()) && Objects.equals(getCep(), enderecoEntrega.getCep()) && Objects.equals(getCidade(), enderecoEntrega.getCidade());
     }
 
     @Override
