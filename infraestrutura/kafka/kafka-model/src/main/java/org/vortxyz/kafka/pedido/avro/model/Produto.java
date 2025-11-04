@@ -5,9 +5,7 @@
  */
 package org.vortxyz.kafka.pedido.avro.model;
 
-import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
-import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
@@ -152,7 +150,7 @@ public class Produto extends org.apache.avro.specific.SpecificRecordBase impleme
    * Creates a new Produto RecordBuilder.
    * @return A new Produto RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.Produto.Builder newBuilder() {
+  public static org.vortxyz.kafka.pedido.avro.model.Produto.Builder builder() {
     return new org.vortxyz.kafka.pedido.avro.model.Produto.Builder();
   }
 
@@ -161,7 +159,7 @@ public class Produto extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing builder to copy.
    * @return A new Produto RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.Produto.Builder newBuilder(org.vortxyz.kafka.pedido.avro.model.Produto.Builder other) {
+  public static org.vortxyz.kafka.pedido.avro.model.Produto.Builder builder(org.vortxyz.kafka.pedido.avro.model.Produto.Builder other) {
     if (other == null) {
       return new org.vortxyz.kafka.pedido.avro.model.Produto.Builder();
     } else {
@@ -174,7 +172,7 @@ public class Produto extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing instance to copy.
    * @return A new Produto RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.Produto.Builder newBuilder(org.vortxyz.kafka.pedido.avro.model.Produto other) {
+  public static org.vortxyz.kafka.pedido.avro.model.Produto.Builder builder(org.vortxyz.kafka.pedido.avro.model.Produto other) {
     if (other == null) {
       return new org.vortxyz.kafka.pedido.avro.model.Produto.Builder();
     } else {

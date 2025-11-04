@@ -5,9 +5,7 @@
  */
 package org.vortxyz.kafka.pedido.avro.model;
 
-import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
-import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
@@ -283,7 +281,7 @@ public class PagamentoRequestAvroModel extends org.apache.avro.specific.Specific
    * Creates a new PagamentoRequestAvroModel RecordBuilder.
    * @return A new PagamentoRequestAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel.Builder newBuilder() {
+  public static org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel.Builder builder() {
     return new org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel.Builder();
   }
 
@@ -292,7 +290,7 @@ public class PagamentoRequestAvroModel extends org.apache.avro.specific.Specific
    * @param other The existing builder to copy.
    * @return A new PagamentoRequestAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel.Builder newBuilder(org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel.Builder other) {
+  public static org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel.Builder builder(org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel.Builder other) {
     if (other == null) {
       return new org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel.Builder();
     } else {
@@ -305,7 +303,7 @@ public class PagamentoRequestAvroModel extends org.apache.avro.specific.Specific
    * @param other The existing instance to copy.
    * @return A new PagamentoRequestAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel.Builder newBuilder(org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel other) {
+  public static org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel.Builder builder(org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel other) {
     if (other == null) {
       return new org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel.Builder();
     } else {

@@ -13,24 +13,38 @@ import org.vortxyz.pedido.service.messaging.mapper.PedidoMessagingDataMapper;
 
 import java.util.List;
 
+import static org.vortxyz.pedido.domain.entity.Pedido.DELIMITADOR_MENSAGENS_FALHA;
+
 @Slf4j
 @Component
-public class RestauranteAprovacaoresponseKafkaListener implements KafkaConsumer<RestauranteAprovacaoResponseAvroModel> {
+public class RestauranteAprovacaoResponseKafkaListener implements KafkaConsumer<RestauranteAprovacaoResponseAvroModel> {
 
     private final RestauranteAprovacaoMessageListener restauranteAprovacaoMessageListener;
     private final PedidoMessagingDataMapper pedidoMessagingDataMapper;
 
-    public RestauranteAprovacaoresponseKafkaListener(RestauranteAprovacaoMessageListener restauranteAprovacaoMessageListener, PedidoMessagingDataMapper pedidoMessagingDataMapper) {
+    public RestauranteAprovacaoResponseKafkaListener(RestauranteAprovacaoMessageListener restauranteAprovacaoMessageListener, PedidoMessagingDataMapper pedidoMessagingDataMapper) {
         this.restauranteAprovacaoMessageListener = restauranteAprovacaoMessageListener;
         this.pedidoMessagingDataMapper = pedidoMessagingDataMapper;
     }
 
     @Override
-    @KafkaListener(id = "${kafka-consumer-config.restaurante-aprovacao-consumer-group-id}", topics = "restaurante-service.restaurante-aprovacao-response-topic-name")
+    @KafkaListener(id = "${kafka-consumer-config.restaurante-aprovacao-consumer-group-id}", topics = "pedido-service.restaurante-aprovacao-response-topic-name")
     public void receive(@Payload List<RestauranteAprovacaoResponseAvroModel> mensagens,
-                        @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) List<Long> chaves,
+                        @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) List<String> chaves,
                         @Header(KafkaHeaders.RECEIVED_PARTITION_ID) List<Integer> particoes,
                         @Header(KafkaHeaders.OFFSET) List<Long> offsets) {
 
+        mensagens.forEach(restauranteAprovacaoResponseAvroModel -> {
+            switch (restauranteAprovacaoResponseAvroModel.getPedidoAprovacaoStatus()) {
+                case APROVADO -> {
+                    log.info("Processando pedido aprovado com id: {}.", restauranteAprovacaoResponseAvroModel.getPedidoId());
+                    restauranteAprovacaoMessageListener.pedidoAprovado(pedidoMessagingDataMapper.restauranteAprovacaoResponseAvroModelToRestauranteAprovacaoResponse(restauranteAprovacaoResponseAvroModel));
+                }
+                case REJEITADO -> {
+                    log.info("Processando pedido rejeitado com id: {}, com as mensagens de falha: {}.", restauranteAprovacaoResponseAvroModel.getPedidoId(), String.join(DELIMITADOR_MENSAGENS_FALHA, restauranteAprovacaoResponseAvroModel.getMensagensFalha()));
+                    restauranteAprovacaoMessageListener.pedidoRejeitado(pedidoMessagingDataMapper.restauranteAprovacaoResponseAvroModelToRestauranteAprovacaoResponse(restauranteAprovacaoResponseAvroModel));
+                }
+            }
+        });
     }
 }

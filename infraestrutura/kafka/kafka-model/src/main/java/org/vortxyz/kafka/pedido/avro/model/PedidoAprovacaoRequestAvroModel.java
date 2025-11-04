@@ -5,9 +5,7 @@
  */
 package org.vortxyz.kafka.pedido.avro.model;
 
-import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
-import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
@@ -306,7 +304,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
    * Creates a new PedidoAprovacaoRequestAvroModel RecordBuilder.
    * @return A new PedidoAprovacaoRequestAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder newBuilder() {
+  public static org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder builder() {
     return new org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder();
   }
 
@@ -315,7 +313,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
    * @param other The existing builder to copy.
    * @return A new PedidoAprovacaoRequestAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder newBuilder(org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder other) {
+  public static org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder builder(org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder other) {
     if (other == null) {
       return new org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder();
     } else {
@@ -328,7 +326,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
    * @param other The existing instance to copy.
    * @return A new PedidoAprovacaoRequestAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder newBuilder(org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel other) {
+  public static org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder builder(org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel other) {
     if (other == null) {
       return new org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder();
     } else {
