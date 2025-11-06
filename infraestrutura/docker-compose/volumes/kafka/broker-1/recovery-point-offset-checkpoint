@@ -8,7 +8,7 @@ restaurante-approval-request 0 0
 __consumer_offsets 9 0
 __consumer_offsets 42 0
 __consumer_offsets 21 0
-__consumer_offsets 17 0
+__consumer_offsets 17 4
 cliente 1 0
 __consumer_offsets 30 0
 __consumer_offsets 26 0
@@ -17,7 +17,7 @@ __consumer_offsets 38 0
 __consumer_offsets 1 0
 __consumer_offsets 34 0
 __consumer_offsets 16 0
-_schemas 0 0
+_schemas 0 6
 __consumer_offsets 45 0
 restaurante-approval-response 0 0
 __consumer_offsets 12 0
@@ -27,7 +27,7 @@ pagamento-request 1 0
 __consumer_offsets 20 0
 __consumer_offsets 49 0
 __consumer_offsets 0 0
-__consumer_offsets 29 0
+__consumer_offsets 29 6
 cliente 2 0
 __consumer_offsets 25 0
 pagamento-response 2 0

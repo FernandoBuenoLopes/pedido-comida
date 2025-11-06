@@ -3,6 +3,7 @@ package org.vortxyz.pedido.service.messaging.publisher.kafka;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel;
+import org.vortxyz.kafka.producer.KafkaMessageHelper;
 import org.vortxyz.kafka.producer.service.KafkaProducer;
 import org.vortxyz.pedido.domain.config.PedidoServiceConfigData;
 import org.vortxyz.pedido.domain.event.PedidoCanceladoEvent;
@@ -16,13 +17,13 @@ public class PedidoCancelarKafkaMessagePublisher implements PedidoCanceladoPagam
     private final PedidoMessagingDataMapper pedidoMessagingDataMapper;
     private final PedidoServiceConfigData pedidoServiceConfigData;
     private final KafkaProducer<String, PagamentoRequestAvroModel> kafkaProducer;
-    private final PedidoKafkaMessageHelper pedidoKafkaMessageHelper;
+    private final KafkaMessageHelper kafkaMessageHelper;
 
-    public PedidoCancelarKafkaMessagePublisher(PedidoMessagingDataMapper pedidoMessagingDataMapper, PedidoServiceConfigData pedidoServiceConfigData, KafkaProducer<String, PagamentoRequestAvroModel> kafkaProducer, PedidoKafkaMessageHelper pedidoKafkaMessageHelper) {
+    public PedidoCancelarKafkaMessagePublisher(PedidoMessagingDataMapper pedidoMessagingDataMapper, PedidoServiceConfigData pedidoServiceConfigData, KafkaProducer<String, PagamentoRequestAvroModel> kafkaProducer, KafkaMessageHelper kafkaMessageHelper) {
         this.pedidoMessagingDataMapper = pedidoMessagingDataMapper;
         this.pedidoServiceConfigData = pedidoServiceConfigData;
         this.kafkaProducer = kafkaProducer;
-        this.pedidoKafkaMessageHelper = pedidoKafkaMessageHelper;
+        this.kafkaMessageHelper = kafkaMessageHelper;
     }
 
     @Override
@@ -33,7 +34,7 @@ public class PedidoCancelarKafkaMessagePublisher implements PedidoCanceladoPagam
         try {
             PagamentoRequestAvroModel pagamentoRequestAvroModel = pedidoMessagingDataMapper.pedidoCanceladoEventToPagamentoRequestAvroModel(pedidoCanceladoEvent);
             kafkaProducer.send(pedidoServiceConfigData.getPagamentoRequestTopicName(), pedidoId, pagamentoRequestAvroModel,
-                    pedidoKafkaMessageHelper.obterKafkaCallback(pedidoServiceConfigData.getPagamentoResponseTopicName(), pagamentoRequestAvroModel, pedidoId, "PagamentoRequestAvroModel"));
+                    kafkaMessageHelper.obterKafkaCallback(pedidoServiceConfigData.getPagamentoResponseTopicName(), pagamentoRequestAvroModel, pedidoId, "PagamentoRequestAvroModel"));
             log.info("PagamentoRequestAvroModel enviado ao Kafka para pedido com id: \"{}\"", pagamentoRequestAvroModel.getPedidoId());
 
         } catch (Exception e){

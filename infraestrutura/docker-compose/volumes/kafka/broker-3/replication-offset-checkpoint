@@ -31,7 +31,7 @@ __consumer_offsets 4 0
 __consumer_offsets 1 0
 __consumer_offsets 38 0
 __consumer_offsets 14 0
-__consumer_offsets 29 4
+__consumer_offsets 29 8
 __consumer_offsets 0 0
 __consumer_offsets 6 0
 __consumer_offsets 35 0
@@ -48,14 +48,14 @@ __consumer_offsets 24 0
 pagamento-request 1 0
 __consumer_offsets 3 0
 pagamento-request 2 0
-__consumer_offsets 17 4
+__consumer_offsets 17 6
 pagamento-response 2 0
 __consumer_offsets 39 0
 __consumer_offsets 2 0
 __consumer_offsets 44 0
 __consumer_offsets 16 0
 restaurante-approval-response 0 0
-_schemas 0 4
+_schemas 0 8
 __consumer_offsets 47 0
 __consumer_offsets 7 0
 restaurante-approval-request 0 0

@@ -1,6 +1,7 @@
 package org.vortxyz.pedido.domain;
 
 import lombok.extern.slf4j.Slf4j;
+import org.vortxyz.domain.event.publisher.DomainEventPublisher;
 import org.vortxyz.pedido.domain.entity.Pedido;
 import org.vortxyz.pedido.domain.entity.Produto;
 import org.vortxyz.pedido.domain.entity.Restaurante;
@@ -13,26 +14,26 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
 
+import static org.vortxyz.domain.DomainConstants.FUSO_HORARIO;
+
 @Slf4j
 public class PedidoDomainServiceImpl implements PedidoDomainService {
 
-    private static final String FUSO_HORARIO = "UTC";
-
     @Override
-    public PedidoCriadoEvent validarEInicializarPedido(Pedido pedido, Restaurante restaurante) {
+    public PedidoCriadoEvent validarEInicializarPedido(Pedido pedido, Restaurante restaurante, DomainEventPublisher<PedidoCriadoEvent> pedidoCriadoEventDomainEventPublisher) {
         validarRestaurante(restaurante);
         preencherInformacaoDoProduto(pedido, restaurante);
         pedido.validarPedido();
         pedido.inicializarPedido();
         log.info("Pedido com id: {} está inicializado.", pedido.getId().getValue());
-        return new PedidoCriadoEvent(pedido, ZonedDateTime.now(ZoneId.of(FUSO_HORARIO)));
+        return new PedidoCriadoEvent(pedido, ZonedDateTime.now(ZoneId.of(FUSO_HORARIO)), pedidoCriadoEventDomainEventPublisher);
     }
 
     @Override
-    public PedidoPagoEvent pagarPedido(Pedido pedido) {
+    public PedidoPagoEvent pagarPedido(Pedido pedido, DomainEventPublisher<PedidoPagoEvent> pedidoPagoEventDomainEventPublisher) {
         pedido.pagar();
         log.info("Pedido com id: {} está pago.", pedido.getId().getValue());
-        return new PedidoPagoEvent(pedido, ZonedDateTime.now(ZoneId.of(FUSO_HORARIO)));
+        return new PedidoPagoEvent(pedido, ZonedDateTime.now(ZoneId.of(FUSO_HORARIO)), pedidoPagoEventDomainEventPublisher);
     }
 
     @Override
@@ -42,10 +43,10 @@ public class PedidoDomainServiceImpl implements PedidoDomainService {
     }
 
     @Override
-    public PedidoCanceladoEvent cancelarPagamentoDoPedido(Pedido pedido, List<String> mensagensFalha) {
+    public PedidoCanceladoEvent cancelarPagamentoDoPedido(Pedido pedido, List<String> mensagensFalha, DomainEventPublisher<PedidoCanceladoEvent> pedidoCanceladoEventDomainEventPublisher) {
         pedido.iniciarCancelamento(mensagensFalha);
         log.info("Pagamento sendo cancelado para o pedido com id: {}.", pedido.getId().getValue());
-        return new PedidoCanceladoEvent(pedido, ZonedDateTime.now(ZoneId.of(FUSO_HORARIO)));
+        return new PedidoCanceladoEvent(pedido, ZonedDateTime.now(ZoneId.of(FUSO_HORARIO)), pedidoCanceladoEventDomainEventPublisher);
     }
 
     @Override

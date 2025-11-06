@@ -11,6 +11,7 @@ import org.vortxyz.pedido.domain.entity.Restaurante;
 import org.vortxyz.pedido.domain.event.PedidoCriadoEvent;
 import org.vortxyz.pedido.domain.exception.PedidoDomainException;
 import org.vortxyz.pedido.domain.mapper.PedidoMapper;
+import org.vortxyz.pedido.domain.ports.output.message.publisher.pagamento.PedidoCriadoPagamentoRequestgMessagePublisher;
 import org.vortxyz.pedido.domain.ports.output.repository.ClienteRepository;
 import org.vortxyz.pedido.domain.ports.output.repository.PedidoRepository;
 import org.vortxyz.pedido.domain.ports.output.repository.RestauranteRepository;
@@ -27,13 +28,15 @@ public class PedidoCriarHelper {
     private final ClienteRepository clienteRepository;
     private final RestauranteRepository restauranteRepository;
     private final PedidoMapper pedidoMapper;
+    private final PedidoCriadoPagamentoRequestgMessagePublisher pedidoCriadoEventDomainEventPublisher;
 
-    public PedidoCriarHelper(PedidoDomainService pedidoDomainService, PedidoRepository pedidoRepository, ClienteRepository clienteRepository, RestauranteRepository restauranteRepository, PedidoMapper pedidoMapper) {
+    public PedidoCriarHelper(PedidoDomainService pedidoDomainService, PedidoRepository pedidoRepository, ClienteRepository clienteRepository, RestauranteRepository restauranteRepository, PedidoMapper pedidoMapper, PedidoCriadoPagamentoRequestgMessagePublisher pedidoCriadoEventDomainEventPublisher) {
         this.pedidoDomainService = pedidoDomainService;
         this.pedidoRepository = pedidoRepository;
         this.clienteRepository = clienteRepository;
         this.restauranteRepository = restauranteRepository;
         this.pedidoMapper = pedidoMapper;
+        this.pedidoCriadoEventDomainEventPublisher = pedidoCriadoEventDomainEventPublisher;
     }
 
     @Transactional
@@ -41,7 +44,7 @@ public class PedidoCriarHelper {
         conferirCliente(pedidoCriarCommand.getClienteId());
         Restaurante restauranteEncontrado = conferirRestaurante(pedidoCriarCommand);
         Pedido pedido = pedidoMapper.pedidoCriarCommandToPedido(pedidoCriarCommand);
-        PedidoCriadoEvent pedidoCriadoEvent = pedidoDomainService.validarEInicializarPedido(pedido, restauranteEncontrado);
+        PedidoCriadoEvent pedidoCriadoEvent = pedidoDomainService.validarEInicializarPedido(pedido, restauranteEncontrado, pedidoCriadoEventDomainEventPublisher);
         pedidoSalvar(pedido);
         log.info("Pedido criado com id: {}", pedidoCriadoEvent.getPedido().getId().getValue());
         return pedidoCriadoEvent;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/cliente-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/common-application/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/common-domain/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/src/main/java" charset="UTF-8" />
@@ -13,6 +14,15 @@
     <file url="file://$PROJECT_DIR$/infraestrutura/kafka/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/infraestrutura/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/infraestrutura/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pagamento-service/pagamento-container/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pagamento-service/pagamento-dataaccess/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pagamento-service/pagamento-domain/pagamento-application-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pagamento-service/pagamento-domain/pagamento-domain-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pagamento-service/pagamento-domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pagamento-service/pagamento-domain/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pagamento-service/pagamento-messaging/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pagamento-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pagamento-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pedido-service/pedido-application/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pedido-service/pedido-container/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pedido-service/pedido-dataacces/src/main/java" charset="UTF-8" />
@@ -23,6 +33,13 @@
     <file url="file://$PROJECT_DIR$/pedido-service/pedido-messaging/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pedido-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pedido-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/restaurante-service/restaurante-application-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/restaurante-service/restaurante-container/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/restaurante-service/restaurante-dataccess/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/restaurante-service/restaurante-domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/restaurante-service/restaurante-messaging/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/restaurante-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/restaurante-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

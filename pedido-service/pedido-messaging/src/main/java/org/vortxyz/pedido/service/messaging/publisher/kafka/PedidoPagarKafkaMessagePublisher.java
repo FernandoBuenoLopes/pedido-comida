@@ -2,8 +2,8 @@ package org.vortxyz.pedido.service.messaging.publisher.kafka;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel;
 import org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel;
+import org.vortxyz.kafka.producer.KafkaMessageHelper;
 import org.vortxyz.kafka.producer.service.KafkaProducer;
 import org.vortxyz.pedido.domain.config.PedidoServiceConfigData;
 import org.vortxyz.pedido.domain.event.PedidoPagoEvent;
@@ -17,13 +17,13 @@ public class PedidoPagarKafkaMessagePublisher implements PedidoPagoRestauranteRe
     private final PedidoMessagingDataMapper pedidoMessagingDataMapper;
     private final PedidoServiceConfigData pedidoServiceConfigData;
     private final KafkaProducer<String, PedidoAprovacaoRequestAvroModel> kafkaProducer;
-    private final PedidoKafkaMessageHelper pedidoKafkaMessageHelper;
+    private final KafkaMessageHelper kafkaMessageHelper;
 
-    public PedidoPagarKafkaMessagePublisher(PedidoMessagingDataMapper pedidoMessagingDataMapper, PedidoServiceConfigData pedidoServiceConfigData, KafkaProducer<String, PedidoAprovacaoRequestAvroModel> kafkaProducer, PedidoKafkaMessageHelper pedidoKafkaMessageHelper) {
+    public PedidoPagarKafkaMessagePublisher(PedidoMessagingDataMapper pedidoMessagingDataMapper, PedidoServiceConfigData pedidoServiceConfigData, KafkaProducer<String, PedidoAprovacaoRequestAvroModel> kafkaProducer, KafkaMessageHelper kafkaMessageHelper) {
         this.pedidoMessagingDataMapper = pedidoMessagingDataMapper;
         this.pedidoServiceConfigData = pedidoServiceConfigData;
         this.kafkaProducer = kafkaProducer;
-        this.pedidoKafkaMessageHelper = pedidoKafkaMessageHelper;
+        this.kafkaMessageHelper = kafkaMessageHelper;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class PedidoPagarKafkaMessagePublisher implements PedidoPagoRestauranteRe
         String pedidoId = domainEvent.getPedido().getId().getValue().toString();
         try {
             PedidoAprovacaoRequestAvroModel pedidoAprovacaoRequestAvroModel = pedidoMessagingDataMapper.pedidoPagoEventToRestauranteAprovacaoRequestAvroModel(domainEvent);
-            kafkaProducer.send(pedidoServiceConfigData.getRestauranteAprovacaoRequestTopicName(), pedidoId, pedidoAprovacaoRequestAvroModel, pedidoKafkaMessageHelper.obterKafkaCallback(
+            kafkaProducer.send(pedidoServiceConfigData.getRestauranteAprovacaoRequestTopicName(), pedidoId, pedidoAprovacaoRequestAvroModel, kafkaMessageHelper.obterKafkaCallback(
                     pedidoServiceConfigData.getRestauranteAprovacaoRequestTopicName(),
                     pedidoAprovacaoRequestAvroModel,
                     pedidoId,

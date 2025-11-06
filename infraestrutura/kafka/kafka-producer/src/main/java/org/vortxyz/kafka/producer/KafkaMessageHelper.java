@@ -1,22 +1,22 @@
-package org.vortxyz.pedido.service.messaging.publisher.kafka;
+package org.vortxyz.kafka.producer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFutureCallback;
-import org.vortxyz.kafka.pedido.avro.model.PagamentoRequestAvroModel;
 
 @Slf4j
 @Component
-public class PedidoKafkaMessageHelper {
+public class KafkaMessageHelper {
 
-    public <T> ListenableFutureCallback<SendResult<String, T>> obterKafkaCallback(String responseTopicName, T requestAvroModel, String pedidoId, String requestAvroModelName) {
+    public <T> ListenableFutureCallback<SendResult<String, T>> obterKafkaCallback(String responseTopicName, T avroModel, String pedidoId, String avroModelName) {
+
         return new ListenableFutureCallback<SendResult<String, T>>() {
             @Override
             public void onFailure(Throwable ex) {
 
-                log.error("Erro ao enviar mensagem do {}: \"{}\" ao tópico: {}.", requestAvroModelName, requestAvroModel.toString(), responseTopicName, ex);
+                log.error("Erro ao enviar mensagem do {}: \"{}\" ao tópico: {}.", avroModelName, avroModel.toString(), responseTopicName, ex);
             }
 
             @Override
