@@ -1,9 +1,9 @@
-package org.vortxyz.pedido.service.dataaccess.restaurante.repository;
+package org.vortxyz.dataaccess.restaurante.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import org.vortxyz.pedido.service.dataaccess.restaurante.entity.RestauranteEntity;
-import org.vortxyz.pedido.service.dataaccess.restaurante.entity.RestauranteEntityId;
+import org.vortxyz.dataaccess.restaurante.entity.RestauranteEntity;
+import org.vortxyz.dataaccess.restaurante.entity.RestauranteEntityId;
 
 import java.util.List;
 import java.util.Optional;

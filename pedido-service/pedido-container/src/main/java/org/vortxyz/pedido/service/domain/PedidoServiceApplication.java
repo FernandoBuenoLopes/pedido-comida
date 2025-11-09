@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = "org.vortxyz")
-@EntityScan(basePackages = "org.vortxyz.pedido.service.dataaccess")
-@EnableJpaRepositories(basePackages = "org.vortxyz.pedido.service.dataaccess")
+@EntityScan(basePackages = {"org.vortxyz.pedido.service.dataaccess", "org.vortxyz.dataaccess"})
+@EnableJpaRepositories(basePackages = {"org.vortxyz.pedido.service.dataaccess", "org.vortxyz.dataaccess"})
 public class PedidoServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(PedidoServiceApplication.class, args);

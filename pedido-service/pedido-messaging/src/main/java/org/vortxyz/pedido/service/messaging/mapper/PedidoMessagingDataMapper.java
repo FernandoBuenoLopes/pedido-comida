@@ -48,11 +48,11 @@ public class PedidoMessagingDataMapper {
     }
 
 
-    public PedidoAprovacaoRequestAvroModel pedidoPagoEventToRestauranteAprovacaoRequestAvroModel(PedidoPagoEvent pedidoPagoEvent) {
+    public RestauranteAprovacaoRequestAvroModel pedidoPagoEventToRestauranteAprovacaoRequestAvroModel(PedidoPagoEvent pedidoPagoEvent) {
 
         Pedido pedido = pedidoPagoEvent.getPedido();
 
-        return PedidoAprovacaoRequestAvroModel.builder()
+        return RestauranteAprovacaoRequestAvroModel.builder()
                 .setId(UUID.randomUUID().toString())
                 .setSagaId("")
                 .setPedidoId(pedido.getId().getValue().toString())

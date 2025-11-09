@@ -1,7 +1,7 @@
 {
     "namespace": "org.vortxyz.kafka.pedido.avro.model",
     "type": "record",
-    "name": "PedidoAprovacaoRequestAvroModel",
+    "name": "RestauranteAprovacaoRequestAvroModel",
     "fields": [
         {
             "name": "id",

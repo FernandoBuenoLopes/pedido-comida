@@ -5,7 +5,9 @@
  */
 package org.vortxyz.kafka.pedido.avro.model;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
+import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
@@ -77,7 +79,7 @@ public class Produto extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * Default constructor.  Note that this does not initialize fields
    * to their default values from the schema.  If that is desired then
-   * one should use <code>newBuilder()</code>.
+   * one should use <code>builder()</code>.
    */
   public Produto() {}
 

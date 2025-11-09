@@ -1,4 +1,4 @@
-package org.vortxyz.pedido.service.dataaccess.restaurante.entity;
+package org.vortxyz.dataaccess.restaurante.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -33,6 +33,8 @@ public class RestauranteEntity {
     private String produtoNome;
 
     private BigDecimal produtoPreco;
+
+    private Boolean produtoDisponivel;
 
     @Override
     public boolean equals(Object o) {

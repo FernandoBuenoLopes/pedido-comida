@@ -5,9 +5,7 @@
  */
 package org.vortxyz.kafka.pedido.avro.model;
 
-import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
-import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
@@ -282,7 +280,7 @@ public class RestauranteAprovacaoResponseAvroModel extends org.apache.avro.speci
    * Creates a new RestauranteAprovacaoResponseAvroModel RecordBuilder.
    * @return A new RestauranteAprovacaoResponseAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel.Builder newBuilder() {
+  public static org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel.Builder builder() {
     return new org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel.Builder();
   }
 
@@ -291,7 +289,7 @@ public class RestauranteAprovacaoResponseAvroModel extends org.apache.avro.speci
    * @param other The existing builder to copy.
    * @return A new RestauranteAprovacaoResponseAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel.Builder newBuilder(org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel.Builder other) {
+  public static org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel.Builder builder(org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel.Builder other) {
     if (other == null) {
       return new org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel.Builder();
     } else {
@@ -304,7 +302,7 @@ public class RestauranteAprovacaoResponseAvroModel extends org.apache.avro.speci
    * @param other The existing instance to copy.
    * @return A new RestauranteAprovacaoResponseAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel.Builder newBuilder(org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel other) {
+  public static org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel.Builder builder(org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel other) {
     if (other == null) {
       return new org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoResponseAvroModel.Builder();
     } else {

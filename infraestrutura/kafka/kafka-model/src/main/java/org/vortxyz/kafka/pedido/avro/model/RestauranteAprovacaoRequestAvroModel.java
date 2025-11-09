@@ -5,17 +5,19 @@
  */
 package org.vortxyz.kafka.pedido.avro.model;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
+import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
-public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6804814688563621531L;
+public class RestauranteAprovacaoRequestAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = -1531705980684525233L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PedidoAprovacaoRequestAvroModel\",\"namespace\":\"org.vortxyz.kafka.pedido.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"restauranteId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"pedidoId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"restaurantePedidoStatus\",\"type\":{\"type\":\"enum\",\"name\":\"RestaurantePedidoStatus\",\"symbols\":[\"PAGO\"]}},{\"name\":\"produtos\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Produto\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"quantidade\",\"type\":\"int\"}]}}},{\"name\":\"preco\",\"type\":{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":10,\"scale\":2}},{\"name\":\"criadoEm\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RestauranteAprovacaoRequestAvroModel\",\"namespace\":\"org.vortxyz.kafka.pedido.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"restauranteId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"pedidoId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"restaurantePedidoStatus\",\"type\":{\"type\":\"enum\",\"name\":\"RestaurantePedidoStatus\",\"symbols\":[\"PAGO\"]}},{\"name\":\"produtos\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Produto\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"quantidade\",\"type\":\"int\"}]}}},{\"name\":\"preco\",\"type\":{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":10,\"scale\":2}},{\"name\":\"criadoEm\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -24,17 +26,17 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
     MODEL$.addLogicalTypeConversion(new org.apache.avro.Conversions.DecimalConversion());
   }
 
-  private static final BinaryMessageEncoder<PedidoAprovacaoRequestAvroModel> ENCODER =
-      new BinaryMessageEncoder<PedidoAprovacaoRequestAvroModel>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<RestauranteAprovacaoRequestAvroModel> ENCODER =
+      new BinaryMessageEncoder<RestauranteAprovacaoRequestAvroModel>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<PedidoAprovacaoRequestAvroModel> DECODER =
-      new BinaryMessageDecoder<PedidoAprovacaoRequestAvroModel>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<RestauranteAprovacaoRequestAvroModel> DECODER =
+      new BinaryMessageDecoder<RestauranteAprovacaoRequestAvroModel>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
    * @return the message encoder used by this class
    */
-  public static BinaryMessageEncoder<PedidoAprovacaoRequestAvroModel> getEncoder() {
+  public static BinaryMessageEncoder<RestauranteAprovacaoRequestAvroModel> getEncoder() {
     return ENCODER;
   }
 
@@ -42,7 +44,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
    * Return the BinaryMessageDecoder instance used by this class.
    * @return the message decoder used by this class
    */
-  public static BinaryMessageDecoder<PedidoAprovacaoRequestAvroModel> getDecoder() {
+  public static BinaryMessageDecoder<RestauranteAprovacaoRequestAvroModel> getDecoder() {
     return DECODER;
   }
 
@@ -51,12 +53,12 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
-  public static BinaryMessageDecoder<PedidoAprovacaoRequestAvroModel> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<PedidoAprovacaoRequestAvroModel>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<RestauranteAprovacaoRequestAvroModel> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<RestauranteAprovacaoRequestAvroModel>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
-   * Serializes this PedidoAprovacaoRequestAvroModel to a ByteBuffer.
+   * Serializes this RestauranteAprovacaoRequestAvroModel to a ByteBuffer.
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -65,12 +67,12 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
   }
 
   /**
-   * Deserializes a PedidoAprovacaoRequestAvroModel from a ByteBuffer.
+   * Deserializes a RestauranteAprovacaoRequestAvroModel from a ByteBuffer.
    * @param b a byte buffer holding serialized data for an instance of this class
-   * @return a PedidoAprovacaoRequestAvroModel instance decoded from the given buffer
+   * @return a RestauranteAprovacaoRequestAvroModel instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
-  public static PedidoAprovacaoRequestAvroModel fromByteBuffer(
+  public static RestauranteAprovacaoRequestAvroModel fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -87,9 +89,9 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
   /**
    * Default constructor.  Note that this does not initialize fields
    * to their default values from the schema.  If that is desired then
-   * one should use <code>newBuilder()</code>.
+   * one should use <code>builder()</code>.
    */
-  public PedidoAprovacaoRequestAvroModel() {}
+  public RestauranteAprovacaoRequestAvroModel() {}
 
   /**
    * All-args constructor.
@@ -102,7 +104,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
    * @param preco The new value for preco
    * @param criadoEm The new value for criadoEm
    */
-  public PedidoAprovacaoRequestAvroModel(java.lang.String id, java.lang.String sagaId, java.lang.String restauranteId, java.lang.String pedidoId, org.vortxyz.kafka.pedido.avro.model.RestaurantePedidoStatus restaurantePedidoStatus, java.util.List<org.vortxyz.kafka.pedido.avro.model.Produto> produtos, java.math.BigDecimal preco, java.time.Instant criadoEm) {
+  public RestauranteAprovacaoRequestAvroModel(java.lang.String id, java.lang.String sagaId, java.lang.String restauranteId, java.lang.String pedidoId, org.vortxyz.kafka.pedido.avro.model.RestaurantePedidoStatus restaurantePedidoStatus, java.util.List<org.vortxyz.kafka.pedido.avro.model.Produto> produtos, java.math.BigDecimal preco, java.time.Instant criadoEm) {
     this.id = id;
     this.sagaId = sagaId;
     this.restauranteId = restauranteId;
@@ -301,45 +303,45 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
   }
 
   /**
-   * Creates a new PedidoAprovacaoRequestAvroModel RecordBuilder.
-   * @return A new PedidoAprovacaoRequestAvroModel RecordBuilder
+   * Creates a new RestauranteAprovacaoRequestAvroModel RecordBuilder.
+   * @return A new RestauranteAprovacaoRequestAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder builder() {
-    return new org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder();
+  public static org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder builder() {
+    return new org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder();
   }
 
   /**
-   * Creates a new PedidoAprovacaoRequestAvroModel RecordBuilder by copying an existing Builder.
+   * Creates a new RestauranteAprovacaoRequestAvroModel RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new PedidoAprovacaoRequestAvroModel RecordBuilder
+   * @return A new RestauranteAprovacaoRequestAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder builder(org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder other) {
+  public static org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder builder(org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder other) {
     if (other == null) {
-      return new org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder();
+      return new org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder();
     } else {
-      return new org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder(other);
+      return new org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder(other);
     }
   }
 
   /**
-   * Creates a new PedidoAprovacaoRequestAvroModel RecordBuilder by copying an existing PedidoAprovacaoRequestAvroModel instance.
+   * Creates a new RestauranteAprovacaoRequestAvroModel RecordBuilder by copying an existing RestauranteAprovacaoRequestAvroModel instance.
    * @param other The existing instance to copy.
-   * @return A new PedidoAprovacaoRequestAvroModel RecordBuilder
+   * @return A new RestauranteAprovacaoRequestAvroModel RecordBuilder
    */
-  public static org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder builder(org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel other) {
+  public static org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder builder(org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel other) {
     if (other == null) {
-      return new org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder();
+      return new org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder();
     } else {
-      return new org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder(other);
+      return new org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder(other);
     }
   }
 
   /**
-   * RecordBuilder for PedidoAprovacaoRequestAvroModel instances.
+   * RecordBuilder for RestauranteAprovacaoRequestAvroModel instances.
    */
   @org.apache.avro.specific.AvroGenerated
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<PedidoAprovacaoRequestAvroModel>
-    implements org.apache.avro.data.RecordBuilder<PedidoAprovacaoRequestAvroModel> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<RestauranteAprovacaoRequestAvroModel>
+    implements org.apache.avro.data.RecordBuilder<RestauranteAprovacaoRequestAvroModel> {
 
     private java.lang.String id;
     private java.lang.String sagaId;
@@ -359,7 +361,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder other) {
+    private Builder(org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -396,10 +398,10 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
     }
 
     /**
-     * Creates a Builder by copying an existing PedidoAprovacaoRequestAvroModel instance
+     * Creates a Builder by copying an existing RestauranteAprovacaoRequestAvroModel instance
      * @param other The existing instance to copy.
      */
-    private Builder(org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel other) {
+    private Builder(org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -449,7 +451,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder setId(java.lang.String value) {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder setId(java.lang.String value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -469,7 +471,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * Clears the value of the 'id' field.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder clearId() {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -489,7 +491,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * @param value The value of 'sagaId'.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder setSagaId(java.lang.String value) {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder setSagaId(java.lang.String value) {
       validate(fields()[1], value);
       this.sagaId = value;
       fieldSetFlags()[1] = true;
@@ -509,7 +511,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * Clears the value of the 'sagaId' field.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder clearSagaId() {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder clearSagaId() {
       sagaId = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -529,7 +531,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * @param value The value of 'restauranteId'.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder setRestauranteId(java.lang.String value) {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder setRestauranteId(java.lang.String value) {
       validate(fields()[2], value);
       this.restauranteId = value;
       fieldSetFlags()[2] = true;
@@ -549,7 +551,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * Clears the value of the 'restauranteId' field.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder clearRestauranteId() {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder clearRestauranteId() {
       restauranteId = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -569,7 +571,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * @param value The value of 'pedidoId'.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder setPedidoId(java.lang.String value) {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder setPedidoId(java.lang.String value) {
       validate(fields()[3], value);
       this.pedidoId = value;
       fieldSetFlags()[3] = true;
@@ -589,7 +591,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * Clears the value of the 'pedidoId' field.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder clearPedidoId() {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder clearPedidoId() {
       pedidoId = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -609,7 +611,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * @param value The value of 'restaurantePedidoStatus'.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder setRestaurantePedidoStatus(org.vortxyz.kafka.pedido.avro.model.RestaurantePedidoStatus value) {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder setRestaurantePedidoStatus(org.vortxyz.kafka.pedido.avro.model.RestaurantePedidoStatus value) {
       validate(fields()[4], value);
       this.restaurantePedidoStatus = value;
       fieldSetFlags()[4] = true;
@@ -629,7 +631,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * Clears the value of the 'restaurantePedidoStatus' field.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder clearRestaurantePedidoStatus() {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder clearRestaurantePedidoStatus() {
       restaurantePedidoStatus = null;
       fieldSetFlags()[4] = false;
       return this;
@@ -649,7 +651,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * @param value The value of 'produtos'.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder setProdutos(java.util.List<org.vortxyz.kafka.pedido.avro.model.Produto> value) {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder setProdutos(java.util.List<org.vortxyz.kafka.pedido.avro.model.Produto> value) {
       validate(fields()[5], value);
       this.produtos = value;
       fieldSetFlags()[5] = true;
@@ -669,7 +671,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * Clears the value of the 'produtos' field.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder clearProdutos() {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder clearProdutos() {
       produtos = null;
       fieldSetFlags()[5] = false;
       return this;
@@ -689,7 +691,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * @param value The value of 'preco'.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder setPreco(java.math.BigDecimal value) {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder setPreco(java.math.BigDecimal value) {
       validate(fields()[6], value);
       this.preco = value;
       fieldSetFlags()[6] = true;
@@ -709,7 +711,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * Clears the value of the 'preco' field.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder clearPreco() {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder clearPreco() {
       preco = null;
       fieldSetFlags()[6] = false;
       return this;
@@ -729,7 +731,7 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * @param value The value of 'criadoEm'.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder setCriadoEm(java.time.Instant value) {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder setCriadoEm(java.time.Instant value) {
       validate(fields()[7], value);
       this.criadoEm = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
       fieldSetFlags()[7] = true;
@@ -749,16 +751,16 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
       * Clears the value of the 'criadoEm' field.
       * @return This builder.
       */
-    public org.vortxyz.kafka.pedido.avro.model.PedidoAprovacaoRequestAvroModel.Builder clearCriadoEm() {
+    public org.vortxyz.kafka.pedido.avro.model.RestauranteAprovacaoRequestAvroModel.Builder clearCriadoEm() {
       fieldSetFlags()[7] = false;
       return this;
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public PedidoAprovacaoRequestAvroModel build() {
+    public RestauranteAprovacaoRequestAvroModel build() {
       try {
-        PedidoAprovacaoRequestAvroModel record = new PedidoAprovacaoRequestAvroModel();
+        RestauranteAprovacaoRequestAvroModel record = new RestauranteAprovacaoRequestAvroModel();
         record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
         record.sagaId = fieldSetFlags()[1] ? this.sagaId : (java.lang.String) defaultValue(fields()[1]);
         record.restauranteId = fieldSetFlags()[2] ? this.restauranteId : (java.lang.String) defaultValue(fields()[2]);
@@ -777,8 +779,8 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<PedidoAprovacaoRequestAvroModel>
-    WRITER$ = (org.apache.avro.io.DatumWriter<PedidoAprovacaoRequestAvroModel>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<RestauranteAprovacaoRequestAvroModel>
+    WRITER$ = (org.apache.avro.io.DatumWriter<RestauranteAprovacaoRequestAvroModel>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -786,8 +788,8 @@ public class PedidoAprovacaoRequestAvroModel extends org.apache.avro.specific.Sp
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<PedidoAprovacaoRequestAvroModel>
-    READER$ = (org.apache.avro.io.DatumReader<PedidoAprovacaoRequestAvroModel>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<RestauranteAprovacaoRequestAvroModel>
+    READER$ = (org.apache.avro.io.DatumReader<RestauranteAprovacaoRequestAvroModel>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {

@@ -1,13 +1,13 @@
 package org.vortxyz.pedido.service.dataaccess.restaurante.mapper;
 
 import org.springframework.stereotype.Component;
+import org.vortxyz.dataaccess.restaurante.entity.RestauranteEntity;
+import org.vortxyz.dataaccess.restaurante.exception.RestauranteDataAccessException;
 import org.vortxyz.domain.valueobject.Dinheiro;
 import org.vortxyz.domain.valueobject.ProdutoId;
 import org.vortxyz.domain.valueobject.RestauranteId;
 import org.vortxyz.pedido.domain.entity.Produto;
 import org.vortxyz.pedido.domain.entity.Restaurante;
-import org.vortxyz.pedido.service.dataaccess.restaurante.entity.RestauranteEntity;
-import org.vortxyz.pedido.service.dataaccess.restaurante.exception.RestauranteDataAccessException;
 
 import java.math.BigDecimal;
 import java.util.List;

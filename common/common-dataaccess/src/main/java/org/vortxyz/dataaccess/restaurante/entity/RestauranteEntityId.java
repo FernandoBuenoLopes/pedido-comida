@@ -1,4 +1,4 @@
-package org.vortxyz.pedido.service.dataaccess.restaurante.entity;
+package org.vortxyz.dataaccess.restaurante.entity;
 
 import lombok.*;
 

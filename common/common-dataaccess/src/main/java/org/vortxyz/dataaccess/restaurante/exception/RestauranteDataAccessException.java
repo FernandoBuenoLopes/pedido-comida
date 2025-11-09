@@ -1,4 +1,4 @@
-package org.vortxyz.pedido.service.dataaccess.restaurante.exception;
+package org.vortxyz.dataaccess.restaurante.exception;
 
 public class RestauranteDataAccessException extends RuntimeException {
     public RestauranteDataAccessException(String message) {
