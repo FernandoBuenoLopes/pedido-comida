@@ -1,6 +1,6 @@
 package org.vortxyz.pagamento.service.dataaccess.pagamento.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import org.vortxyz.domain.valueobject.PagamentoStatus;
 

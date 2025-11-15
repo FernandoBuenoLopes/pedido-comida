@@ -1,5 +1,6 @@
 package org.vortxyz.restaurante.service.dataaccess.restaurante.adapter;
 
+import org.springframework.stereotype.Component;
 import org.vortxyz.dataaccess.restaurante.entity.RestauranteEntity;
 import org.vortxyz.dataaccess.restaurante.repository.RestauranteJpaRepository;
 import org.vortxyz.restaurante.domain.entity.Restaurante;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Component
 public class RestauranteRepositoryImpl implements RestauranteRepository {
 
     private final RestauranteJpaRepository restauranteJpaRepository;

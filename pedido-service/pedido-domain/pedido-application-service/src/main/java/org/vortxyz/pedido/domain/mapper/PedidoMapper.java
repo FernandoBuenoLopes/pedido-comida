@@ -1,6 +1,6 @@
 package org.vortxyz.pedido.domain.mapper;
 
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.NotNull;
 import org.springframework.stereotype.Component;
 import org.vortxyz.domain.valueobject.ClienteId;
 import org.vortxyz.domain.valueobject.Dinheiro;

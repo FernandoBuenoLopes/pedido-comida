@@ -1,6 +1,6 @@
 package org.vortxyz.pagamento.service.dataaccess.creditohistorico.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import org.vortxyz.pagamento.service.domain.valueobject.TipoTransacao;
 

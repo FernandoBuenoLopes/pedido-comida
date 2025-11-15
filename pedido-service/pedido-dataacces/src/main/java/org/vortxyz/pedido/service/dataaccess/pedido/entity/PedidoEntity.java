@@ -1,6 +1,6 @@
 package org.vortxyz.pedido.service.dataaccess.pedido.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import org.vortxyz.domain.valueobject.PedidoStatus;
 

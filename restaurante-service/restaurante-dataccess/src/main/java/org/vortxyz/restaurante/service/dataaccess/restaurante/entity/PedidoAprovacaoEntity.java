@@ -1,6 +1,6 @@
 package org.vortxyz.restaurante.service.dataaccess.restaurante.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import org.vortxyz.domain.valueobject.PedidoAprovacaoStatus;
 

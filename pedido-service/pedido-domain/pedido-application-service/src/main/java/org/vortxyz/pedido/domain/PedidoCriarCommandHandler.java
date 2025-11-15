@@ -1,24 +1,12 @@
 package org.vortxyz.pedido.domain;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 import org.vortxyz.pedido.domain.dto.create.PedidoCriarCommand;
 import org.vortxyz.pedido.domain.dto.create.PedidoCriarResponse;
-import org.vortxyz.pedido.domain.entity.Cliente;
-import org.vortxyz.pedido.domain.entity.Pedido;
-import org.vortxyz.pedido.domain.entity.Restaurante;
 import org.vortxyz.pedido.domain.event.PedidoCriadoEvent;
-import org.vortxyz.pedido.domain.exception.PedidoDomainException;
 import org.vortxyz.pedido.domain.mapper.PedidoMapper;
 import org.vortxyz.pedido.domain.ports.output.message.publisher.pagamento.PedidoCriadoPagamentoRequestgMessagePublisher;
-import org.vortxyz.pedido.domain.ports.output.repository.ClienteRepository;
-import org.vortxyz.pedido.domain.ports.output.repository.PedidoRepository;
-import org.vortxyz.pedido.domain.ports.output.repository.RestauranteRepository;
-
-import java.util.Optional;
-import java.util.UUID;
 
 @Slf4j
 @Component

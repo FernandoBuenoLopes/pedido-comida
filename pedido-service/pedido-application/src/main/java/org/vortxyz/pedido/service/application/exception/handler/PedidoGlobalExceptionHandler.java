@@ -28,7 +28,7 @@ public class PedidoGlobalExceptionHandler extends GlobalExceptionHandler {
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(value = {PedidoNaoEncontradoException.class})
-    public ErroDTO handleException(PedidoNaoEncontradoException pedidoNaoEncontradoException) {
+    public ErroDTO handleNaoEncontradoException(PedidoNaoEncontradoException pedidoNaoEncontradoException) {
         log.error(pedidoNaoEncontradoException.getMessage(), pedidoNaoEncontradoException);
         return ErroDTO.builder().codigo(HttpStatus.NOT_FOUND.getReasonPhrase())
                 .mensagem(pedidoNaoEncontradoException.getMessage())

@@ -1,8 +1,8 @@
 package org.vortxyz.pagamento.service.dataaccess.credito.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.*;
 
 import java.math.BigDecimal;
